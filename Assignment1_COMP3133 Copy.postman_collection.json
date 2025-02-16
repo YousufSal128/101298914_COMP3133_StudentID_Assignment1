@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "21574c65-e4d0-4ee6-8310-8e8a0e016822",
+		"name": "Assignment1_COMP3133 Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38468950"
+	},
+	"item": [
+		{
+			"name": "signupsm2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  signup(username: \"testuser\", email: \"john@example.com\", password: \"password123\") \r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "loginsm2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  login(username: \"testuser\", password: \"password123\")\r\n}\r\n",
+						"variables": "{\r\n  \"username\": \"testuser\",\r\n  \"password\": \"password123\"\r\n}"
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjE3MjAwMmQwMDljZWMwMzI4MGI1MiIsImlhdCI6MTczOTY4MjMxMSwiZXhwIjoxNzM5Njg1OTExfQ.PKbOkU5GgATlLN4S4klJMKiI5YXiT5zu47_fFOBEnqs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getAllEmployees {\r\n    _id\r\n    first_name\r\n    last_name\r\n    email\r\n    gender\r\n    designation\r\n    salary\r\n    date_of_joining\r\n    department\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "AddEmp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  addEmployee(\r\n    first_name: \"John\"\r\n    last_name: \"Doe\"\r\n    email: \"john.doe@example.com\"\r\n    gender: \"Male\"\r\n    designation: \"Software Engineer\"\r\n    salary: 1000000\r\n    date_of_joining: \"2022-01-15\"\r\n    department: \"Development\"\r\n  ) {\r\n    _id\r\n    first_name\r\n    last_name\r\n    email\r\n    gender\r\n    designation\r\n    salary\r\n    date_of_joining\r\n    department\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "SearchEmp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  searchEmployeeById(eid: \"67b1740000d67112937a9813\") {\r\n    _id\r\n    first_name\r\n    last_name\r\n    email\r\n    gender\r\n    designation\r\n    salary\r\n    date_of_joining\r\n    department\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "DelEMP",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  deleteEmployee(eid: \"67b1740000d67112937a9813\")\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEMP",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjE3YmMyZTUwZDBjYTc5YjY3MGQyNSIsImlhdCI6MTczOTY4NTE3OSwiZXhwIjoxNzM5Njg4Nzc5fQ.3fJNKoLo1kh-fiWAFwIqnRESpWtgb1mhxnJV8mOVbWs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  updateEmployee(\r\n    eid: \"67b17e7820de78a1763c99ef\"\r\n    first_name: \"Jane\"\r\n    last_name: \"Smith\"\r\n    email: \"jane.smith@example.com\"\r\n    gender: \"Female\"\r\n    designation: \"Senior Developer\"\r\n    salary: 75000\r\n    date_of_joining: \"2021-05-10\"\r\n    department: \"Development\"\r\n  ) {\r\n    _id\r\n    first_name\r\n    last_name\r\n    email\r\n    gender\r\n    designation\r\n    salary\r\n    date_of_joining\r\n    department\r\n  }\r\n}\r\n\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "SearchEmp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjE3MjAwMmQwMDljZWMwMzI4MGI1MiIsImlhdCI6MTczOTY4MzM0NSwiZXhwIjoxNzM5Njg2OTQ1fQ.6XbdytAdFMhJ9oiuMdjKZUUJ1_16uhte6fIurw7H01M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  searchEmployeeByDesignationOrDepartment(designation: \"Software Engineer\", department: \"Development\") {\r\n    _id\r\n    first_name\r\n    last_name\r\n    email\r\n    gender\r\n    designation\r\n    salary\r\n    date_of_joining\r\n    department\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		}
+	]
+}
